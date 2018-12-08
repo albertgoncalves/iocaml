@@ -1,0 +1,6 @@
+*
+!.gitignore
+!shell.nix
+!main.sh
+!example.*
+!*.ml
