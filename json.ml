@@ -1,6 +1,6 @@
 module L = List
 module YB = Yojson.Basic
-module YBU = Yojson.Basic.Util
+module YBU = YB.Util
 
 let extract json util field = json |> YBU.member field |> util
 let string_of_bool_option = function
