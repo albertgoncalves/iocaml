@@ -3,7 +3,8 @@ module P = Printf
 
 let write_to_file ~filename strs =
     let out_channel = open_out filename in
-    L.iter (fun str -> P.fprintf out_channel "%s\n" str) strs;
+    let lambda = P.fprintf out_channel "%s\n" in
+    L.iter lambda strs;
     close_out out_channel
 
 let () =

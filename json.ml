@@ -22,8 +22,8 @@ let () =
 
     let nested_json = extr_json YBU.to_list "authors" in
     let authors =
-        L.map
-            (fun author -> extract author YBU.to_string "name") nested_json in
+        let lambda author = extract author YBU.to_string "name" in
+        L.map lambda nested_json in
 
     let output = (title::pages::is_ol::is_tr::tags) @ authors in
-    L.iter (fun str -> print_endline str) output
+    L.iter print_endline output
