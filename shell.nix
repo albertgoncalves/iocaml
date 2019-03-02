@@ -11,7 +11,10 @@ with pkgs; mkShell {
                     tmux
                   ];
     shellHook = ''
-        strcd() { cd "$(dirname $1)"; }
+        strcd() {
+            cd "$(dirname $1)"
+        }
+
         withfzf() {
             local h
             h=$(fzf)
@@ -19,8 +22,9 @@ with pkgs; mkShell {
                 $1 "$h"
             fi
         }
-        alias  cdfzf="withfzf strcd"
-        alias vimfzf="withfzf vim"
+
         export -f withfzf
+        alias cdfzf="withfzf strcd"
+        alias vimfzf="withfzf vim"
     '';
 }
